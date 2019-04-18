@@ -50,13 +50,13 @@ let atm (initial : ATM.account_spec list) : unit =
 	     else
 	       (ATM.update_balance id (bal - amount);
 		ATM.deliver_cash amount;
-		ATM.present_message (sprintf "New balance: %d" bal))
+		ATM.present_message (sprintf "New balance: %d" (ATM.get_balance id)))
 
 	  (* deposit *)
 	  | Deposit amount ->
 	     let bal = ATM.get_balance id in
 	     ATM.update_balance id (bal + amount);
-	     ATM.present_message (sprintf "New balance: %d" bal)
+	     ATM.present_message (sprintf "New balance: %d" (ATM.get_balance id))
 
 	  (* done with this customer; move on to the next *)
 	  | Next ->
