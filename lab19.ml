@@ -28,7 +28,7 @@ let atm (initial : ATM.account_spec list) : unit =
 
       (* prompt for the customer's id and provide welcome *)
       let id = ATM.acquire_id () in
-      ATM.present_message ("Welcome " ^ (get_name id));
+      ATM.present_message ("Welcome " ^ (ATM.get_name id));
       
       try
 	(* perform actions on behalf of the selected customer *)
